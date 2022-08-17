@@ -65,45 +65,103 @@
 
 
 
-const Car = function(make, speed){
-    this.make = make;
-    this.speed = speed;
+// const Car = function(make, speed){
+//     this.make = make;
+//     this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function(){
+//     return `${this.speed += 10} km/h`;
+// };
+
+// Car.prototype.brake = function(){
+//     return `${this.speed -= 5} km/h`
+// };
+
+// const BMW = new Car('BMW', 120);
+// const Mercedes = new Car('Mercedes',95);
+// console.log(BMW);
+
+// console.log(BMW.accelerate());
+// console.log(BMW.accelerate());
+// console.log(BMW.brake());
+// console.log(BMW.brake());
+// console.log(BMW.brake());
+// console.log(BMW);
+
+// console.log(Mercedes.accelerate());
+// console.log(Mercedes.accelerate());
+// console.log(Mercedes.accelerate());
+// console.log(Mercedes.accelerate());
+// console.log(Mercedes.brake());
+// console.log(Mercedes.brake());
+// console.log(Mercedes.brake());
+// console.log(Mercedes);
+
+
+
+
+
+//ES6 classes
+
+//class expression
+// const PersonCL = class {}
+
+//class declaration
+class PersonCL {
+   
+    constructor(fullName, birthYear){
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+    }
+
+
+    calcAge(){
+        console.log(2037 - this.birthYear);
+    }
+
+    get age(){
+        return 2037 - this.birthYear
+    }
+
+    set fullName(name){
+        console.log(name);
+        if(name.includes(' ')) this._fullName = name;
+        else alert(`${name} is not a full name!`)
+    }
+
+    get fullName(){
+        return this._fullName;
+    }
+}
+
+
+const jessica = new PersonCL('Jessica Davis', 1996);
+console.log(jessica);
+jessica.calcAge();
+console.log(jessica.age);
+
+const walter = new PersonCL('Walter White', 1965)
+
+
+const account = {
+    owner: 'Jonas',
+    movements: [200,530,120,300],
+
+    get latest(){
+        return this.movements.slice(-1).pop();
+    },
+
+    set latest(mov){
+        this.movements.push(mov);
+    },
 };
 
-Car.prototype.accelerate = function(){
-    return `${this.speed += 10} km/h`;
-};
+console.log(account.latest);
 
-Car.prototype.brake = function(){
-    return `${this.speed -= 5} km/h`
-};
+account.latest = 50
 
-const BMW = new Car('BMW', 120);
-const Mercedes = new Car('Mercedes',95);
-console.log(BMW);
-
-console.log(BMW.accelerate());
-console.log(BMW.accelerate());
-console.log(BMW.brake());
-console.log(BMW.brake());
-console.log(BMW.brake());
-console.log(BMW);
-
-console.log(Mercedes.accelerate());
-console.log(Mercedes.accelerate());
-console.log(Mercedes.accelerate());
-console.log(Mercedes.accelerate());
-console.log(Mercedes.brake());
-console.log(Mercedes.brake());
-console.log(Mercedes.brake());
-console.log(Mercedes);
-
-
-
-
-
-
-
+console.log(account.movements);
 
 
 
